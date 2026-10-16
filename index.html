@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al Bae Handicraft | Seni Daur Ulang Paralon</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#111111',
+                        darker: '#0a0a0a',
+                        accent: '#c87941', // Warna tembaga/kayu bakar untuk menyesuaikan karya PVC
+                        brand: '#d32f2f', // Merah menyesuaikan logo Al Bae
+                        light: '#f5f5f5'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #111111;
+            color: #f5f5f5;
+        }
+        
+        .art-card {
+            overflow: hidden;
+            border-radius: 0.5rem;
+            position: relative;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+        }
+        
+        .art-card img {
+            transition: transform 0.7s ease;
+        }
+        
+        .art-card:hover img {
+            transform: scale(1.08);
+        }
+        
+        .art-overlay {
+            background: linear-gradient(to top, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.4) 50%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .art-card:hover .art-overlay {
+            opacity: 1;
+        }
+
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c87941; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d32f2f; 
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-accent selection:text-dark">
+
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-dark/95 backdrop-blur-md border-b border-white/10 py-3">
+        <div class="container mx-auto px-6 md:px-12 flex justify-between items-center">
+            <!-- Logo area menggunakan gambar logo spesifik -->
+            <a href="#" class="flex items-center gap-3">
+                <img src="1000424658.jpg" alt="Logo Al Bae Handicraft" class="h-12 w-12 object-contain bg-white rounded-full p-1" onerror="this.src='https://placehold.co/100x100/fff/d32f2f?text=AB'">
+                <div class="flex flex-col">
+                    <span class="font-serif text-xl font-bold tracking-wider text-light leading-none">AL BAE</span>
+                    <span class="text-[10px] tracking-widest text-accent uppercase">Handicraft</span>
+                </div>
+            </a>
+            
+            <div class="hidden md:flex space-x-8 items-center text-sm uppercase tracking-widest text-gray-300 font-medium">
+                <a href="#beranda" class="hover:text-accent transition-colors">Beranda</a>
+                <a href="#tentang" class="hover:text-accent transition-colors">Tentang</a>
+                <a href="#karya" class="hover:text-accent transition-colors">Karya Kami</a>
+                <a href="#pesan" class="px-5 py-2 bg-brand text-white hover:bg-red-700 transition-all rounded shadow-lg shadow-red-900/50">
+                    <i class="fab fa-whatsapp mr-2"></i>Pesan
+                </a>
+            </div>
+            
+            <button class="md:hidden text-2xl text-light focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <header id="beranda" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-darker">
+        <!-- Background Overlay -->
+        <div class="absolute inset-0 z-0 opacity-20">
+            <img src="1000424589.jpg" alt="Background Proses" class="w-full h-full object-cover blur-sm" onerror="this.style.display='none'">
+            <div class="absolute inset-0 bg-gradient-to-t from-darker via-darker/80 to-transparent"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 relative z-10 text-center flex flex-col items-center mt-10">
+            <div class="inline-block mb-4 px-4 py-1 rounded-full border border-accent/30 bg-accent/10 backdrop-blur-sm">
+                <span class="text-accent tracking-[0.2em] uppercase text-xs font-semibold">Seni Daur Ulang Paralon (PVC)</span>
+            </div>
+            <h1 class="font-serif text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight max-w-5xl text-shadow">
+                Mengubah Limbah Menjadi <span class="italic text-transparent bg-clip-text bg-gradient-to-r from-accent to-yellow-500">Mahakarya Estetik</span>
+            </h1>
+            <p class="text-gray-300 text-lg md:text-xl max-w-3xl mb-10 font-light leading-relaxed text-shadow">
+                Hadirkan sentuhan seni ukir & grafir "Unique, Antique, & Limited Edition" pada dekorasi ruangan, kustomisasi motor, hingga suvenir eksklusif Anda.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="#karya" class="px-8 py-4 bg-accent text-dark font-semibold tracking-wide hover:bg-yellow-600 transition-all rounded shadow-lg shadow-accent/20">
+                    Eksplorasi Karya
+                </a>
+                <a href="#tentang" class="px-8 py-4 border border-white/20 hover:border-light hover:text-white transition-all font-medium tracking-wide rounded bg-dark/50 backdrop-blur-sm">
+                    Kisah Kami
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="tentang" class="py-24 bg-dark">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="w-full lg:w-1/2 grid grid-cols-2 gap-4 relative">
+                    <!-- Foto Bapak Alimahmudin -->
+                    <img src="1000424540.jpg" alt="Bapak Alimahmudin" class="rounded-lg w-full h-64 object-cover object-top shadow-xl" onerror="this.src='https://placehold.co/400x500/222/555?text=Owner'">
+                    <!-- Foto Proses Pembentukan -->
+                    <img src="1000424589.jpg" alt="Proses Pembentukan PVC" class="rounded-lg w-full h-64 object-cover shadow-xl translate-y-8" onerror="this.src='https://placehold.co/400x500/333/666?text=Proses'">
+                    <div class="absolute -bottom-6 -left-6 bg-darker border border-accent p-4 rounded shadow-2xl">
+                        <p class="font-serif text-3xl font-bold text-accent">2023</p>
+                        <p class="text-xs uppercase tracking-wider text-gray-400">Tahun Berdiri</p>
+                    </div>
+                </div>
+                
+                <div class="w-full lg:w-1/2 mt-12 lg:mt-0">
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">Peduli Lingkungan, Bernilai Seni Tinggi.</h2>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Diprakarsai oleh Bapak <strong class="text-white">Alimahmudin</strong> di Batang, Jawa Tengah, <strong>AL BAE HANDICRAFT</strong> lahir dari rasa keprihatinan terhadap limbah pipa paralon sisa proyek yang mencemari lingkungan.
+                    </p>
+                    <p class="text-gray-400 mb-8 leading-relaxed">
+                        Melalui inovasi dan sentuhan seni, kami mendaur ulang limbah tersebut menggunakan teknik pemotongan, pembengkokan panas, dan pengamplasan khusus. Hasilnya? Produk kerajinan tangan yang artistik, ramah lingkungan, dan bernilai ekonomi tinggi berestetika tinggi.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center shrink-0 border border-accent/30">
+                                <i class="fas fa-leaf text-accent text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Eco-Friendly</h4>
+                                <p class="text-sm text-gray-400">Mengurangi volume limbah PVC secara kreatif.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center shrink-0 border border-accent/30">
+                                <i class="fas fa-gem text-accent text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Limited Edition</h4>
+                                <p class="text-sm text-gray-400">Setiap karya unik, bertekstur, dan berestetika tinggi.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="karya" class="py-24 bg-darker">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center mb-16">
+                <span class="text-accent tracking-[0.3em] uppercase text-sm mb-2 block">Portofolio</span>
+                <h2 class="font-serif text-4xl md:text-5xl font-bold">Galeri Karya Kami</h2>
+                <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Beberapa hasil karya ukir dan grafir dari limbah paralon yang telah kami buat untuk pelanggan.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Gallery Item 1: Body Motor -->
+                <div class="art-card group h-80 rounded-xl">
+                    <img src="1000428894.jpg" alt="Kustom Body Motor" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x600/222/c87941?text=Kustom+Motor'">
+                    <div class="art-overlay absolute inset-0 flex flex-col justify-end p-6">
+                        <span class="text-accent text-xs font-bold uppercase tracking-wider mb-1">Otomotif</span>
+                        <h3 class="font-serif text-2xl font-bold text-white">Kustom Body Motor</h3>
+                        <p class="text-gray-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">Ukiran dan tekstur eksklusif pada body motor untuk tampilan anti-mainstream.</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2: Papan Nama Neon -->
+                <div class="art-card group h-80 rounded-xl">
+                    <img src="1000428617.jpg" alt="Papan Nama Neon" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x600/111/c87941?text=Papan+Nama'">
+                    <div class="art-overlay absolute inset-0 flex flex-col justify-end p-6">
+                        <span class="text-accent text-xs font-bold uppercase tracking-wider mb-1">Signage</span>
+                        <h3 class="font-serif text-2xl font-bold text-white">Papan Nama Berpendar</h3>
+                        <p class="text-gray-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">Grafir detail dipadukan dengan lampu LED/Neon untuk nomor rumah atau bisnis.</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3: Tempat Tisu -->
+                <div class="art-card group h-80 rounded-xl">
+                    <img src="1000428878.jpg" alt="Tempat Tisu Ukir" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x600/2a2a2a/c87941?text=Kotak+Tisu'">
+                    <div class="art-overlay absolute inset-0 flex flex-col justify-end p-6">
+                        <span class="text-accent text-xs font-bold uppercase tracking-wider mb-1">Fungsional</span>
+                        <h3 class="font-serif text-2xl font-bold text-white">Kotak Tisu Estetik</h3>
+                        <p class="text-gray-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">Desain ukiran bunga elegan dengan warna kayu bakar natural dari PVC.</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4: Siluet Wajah -->
+                <div class="art-card group h-80 rounded-xl">
+                    <img src="1000428687.jpg" alt="Siluet Wajah" class="w-full h-full object-cover object-top" onerror="this.src='https://placehold.co/600x600/111/c87941?text=Siluet'">
+                    <div class="art-overlay absolute inset-0 flex flex-col justify-end p-6">
+                        <span class="text-accent text-xs font-bold uppercase tracking-wider mb-1">Dekorasi Dinding</span>
+                        <h3 class="font-serif text-2xl font-bold text-white">Siluet & Sketsa Wajah</h3>
+                        <p class="text-gray-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">Potongan presisi membentuk figur wajah, cocok untuk kado atau pajangan.</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 5: Meja Estetik -->
+                <div class="art-card group h-80 rounded-xl">
+                    <img src="1000428879.jpg" alt="Meja Estetik" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x600/333/c87941?text=Furniture'">
+                    <div class="art-overlay absolute inset-0 flex flex-col justify-end p-6">
+                        <span class="text-accent text-xs font-bold uppercase tracking-wider mb-1">Furniture</span>
+                        <h3 class="font-serif text-2xl font-bold text-white">Set Meja Unik</h3>
+                        <p class="text-gray-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">Furnitur kokoh dari olahan PVC dengan pola retakan estetis khas Al Bae.</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 6: Kaligrafi Elang / Hiasan -->
+                <div class="art-card group h-80 rounded-xl">
+                    <img src="1000426949.jpg" alt="Kaligrafi Elang" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x600/111/c87941?text=Kaligrafi'">
+                    <div class="art-overlay absolute inset-0 flex flex-col justify-end p-6">
+                        <span class="text-accent text-xs font-bold uppercase tracking-wider mb-1">Religi & Ornamen</span>
+                        <h3 class="font-serif text-2xl font-bold text-white">Kaligrafi Berlampu</h3>
+                        <p class="text-gray-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">Hiasan dinding menawan dengan paduan seni kaligrafi dan tata cahaya LED.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                 <p class="text-gray-400 italic text-sm">"Setiap karya dipotong, dibentuk dengan panas, diampelas, dan diwarnai secara manual (Handmade)."</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="pesan" class="py-24 border-t border-white/5 bg-dark">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] rounded-2xl p-8 md:p-16 border border-white/10 shadow-2xl relative overflow-hidden">
+                <!-- Decoration Logo -->
+                <div class="absolute top-0 right-0 p-8 opacity-10">
+                    <img src="1000424658.jpg" alt="Background Logo" class="w-64 h-64 object-contain" onerror="this.style.display='none'">
+                </div>
+
+                <div class="relative z-10 text-center max-w-3xl mx-auto">
+                    <h2 class="font-serif text-3xl md:text-5xl font-bold mb-6 text-white">Tertarik Memiliki Karya Custom Anda Sendiri?</h2>
+                    <p class="text-gray-400 mb-10 text-lg">Diskusikan ide desain, ukuran, dan kebutuhan Anda langsung dengan kami. Kami siap melayani pembuatan hiasan dinding, plakat, suvenir, hingga modifikasi furnitur.</p>
+                    
+                    <!-- Tombol WhatsApp yang terhubung ke nomor dari papan nama -->
+                    <a href="https://wa.me/6287712164980" target="_blank" class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#25D366] text-white font-bold text-lg hover:bg-[#1ebd59] transition-transform hover:scale-105 rounded-full shadow-lg shadow-green-900/30">
+                        <i class="fab fa-whatsapp text-2xl"></i> Hubungi 0877-1216-4980
+                    </a>
+                    <p class="mt-4 text-sm text-gray-500 uppercase tracking-widest">Respon Cepat via WhatsApp</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 bg-darker border-t border-white/10 text-center md:text-left">
+        <div class="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+            
+            <div class="flex flex-col items-center md:items-start">
+                <a href="#" class="flex items-center gap-3 mb-4">
+                    <img src="1000424658.jpg" alt="Logo" class="h-10 w-10 bg-white rounded-full p-1" onerror="this.style.display='none'">
+                    <span class="font-serif text-xl font-bold text-light">AL BAE Handicraft</span>
+                </a>
+                <p class="text-gray-500 text-sm">Seni ukir dan grafir berbahan daur ulang limbah PVC. Inovatif, Ramah Lingkungan, Estetis.</p>
+            </div>
+            
+            <div class="flex flex-col items-center">
+                <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Lokasi Kami</h4>
+                <p class="text-gray-500 text-sm text-center">
+                    <i class="fas fa-map-marker-alt text-brand mr-2"></i> RT/RW 004/001, Kel. Proyonanggan Utara<br>
+                    Kec. Batang, Kab. Batang<br>
+                    Jawa Tengah, Indonesia
+                </p>
+            </div>
+            
+            <div class="flex flex-col items-center md:items-end">
+                <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Owner</h4>
+                <p class="text-gray-400 font-medium mb-2">Bpk. Alimahmudin</p>
+                <div class="flex space-x-4 mt-2">
+                    <a href="#" class="w-10 h-10 rounded-full bg-dark flex items-center justify-center text-gray-400 hover:bg-brand hover:text-white transition-all border border-white/5"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-dark flex items-center justify-center text-gray-400 hover:bg-brand hover:text-white transition-all border border-white/5"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="container mx-auto px-6 md:px-12 mt-12 pt-6 border-t border-white/5 text-center text-sm text-gray-600">
+            &copy; 2026 Al Bae Handicraft. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Efek scroll pada Navbar
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-xl', 'bg-darker/95');
+                navbar.classList.remove('bg-dark/95');
+            } else {
+                navbar.classList.remove('shadow-xl', 'bg-darker/95');
+                navbar.classList.add('bg-dark/95');
+            }
+        });
+    </script>
+</body>
+</html>
